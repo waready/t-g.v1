@@ -4,6 +4,7 @@
         <title>Love</title>
         
         <link type="text/css" rel="stylesheet" href="./Love_files/default.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
         <script type="text/javascript" src="./Love_files/jquery.min.js"></script>
         <script type="text/javascript" src="./Love_files/jscex.min.js"></script>
         <script type="text/javascript" src="./Love_files/jscex-parser.js"></script>
@@ -13,6 +14,8 @@
         <script type="text/javascript" src="./Love_files/jscex-async-powerpack.min.js"></script>
         <script type="text/javascript" src="./Love_files/functions.js" charset="utf-8"></script>
         <script type="text/javascript" src="./Love_files/love.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        
 
     </head>
     <body>
@@ -45,21 +48,31 @@
                     <!-- <span class="say"><span class="space"></span> -- Yours, wuxia2001.</span> -->
                     </div>
                 </div>
-                <!-- <div id="clock-box">
-                    <a href="http://blog.csdn.net/wuxia2001" target="_blank">@wuxia2001</a> 与 <a href="http://blog.csdn.net/wuxia2001" target="_blank">@月亮女</a> 在一起的
-                        <div id="clock"></div>
-                </div> -->
+                <div id="clock-box">
+                    <div id="clock"></div>
+                </div>
                 <canvas id="canvas" width="1100" height="680"></canvas>
+                
             </div>
             <!-- <audio src="./love.mp3" autoplay="autoplay"></audio> -->
-         
+            <div id="ex1" class="modal">
+                <p>Te amo  💗💖</p>
+                <img src="./galery/1.jpg" width="450"  alt="">
+            </div>
+              
+              <!-- Link to open the modal -->
+              <a href="#" id="close" rel="modal:close">Close</a>
+              <a href="#ex1" id="modal" rel="modal:open">Open Modal</a>
         </div>
     
     <script>
+        
     </script>
 
     <script>
     (function(){
+        $('#modal').hide();
+        $('#close').hide();
         var canvas = $('#canvas');
 
         if (!canvas[0].getContext) {
@@ -117,6 +130,7 @@
 
         canvas.click(function(e) {
             var offset = canvas.offset(), x, y;
+            console.log(offset);
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
             if (seed.hover(x, y)) {
@@ -126,6 +140,16 @@
                 canvas.removeClass('hand');
                 var audio = new Audio('love.mp3');
                 audio.play();
+                console.log(audio.currentTime)
+
+                setTimeout(function(){
+                    document.getElementById("modal").click();
+                    setTimeout(function(){
+                        document.getElementById("close").click();
+                    },8000);
+                    
+                }, 109000);
+           
             }
         }).mousemove(function(e){
             var offset = canvas.offset(), x, y;
@@ -192,7 +216,7 @@
 
         var textAnimate = eval(Jscex.compile("async", function () {
             var together = new Date();
-            together.setFullYear(2010, 5, 8);
+            together.setFullYear(2021, 4, 23);
             together.setHours(20);
             together.setMinutes(20);
             together.setSeconds(0);
