@@ -31,7 +31,7 @@ $(window).resize(function() {
 				if (progress >= str.length) {
 					clearInterval(timer);
 				}
-			}, 75);
+			}, 60);
 		});
 		return this;
 	};
@@ -59,6 +59,6 @@ function timeElapse(date){
 	if (seconds < 10) {
 		seconds = "0" + seconds;
 	}
-	var result = "<p> <span class=\"digit\">" + days + "</span> (D) <span class=\"digit\">" + hours + "</span> (M) <span class=\"digit\">" + minutes + "</span> (H) <span class=\"digit\">" + seconds + "</span> (S)</p>" ; 
+	var result = "<p> <span class=\"digit\">" + days + "</span> (D) <span class=\"digit\">" + hours + "</span> (H) <span class=\"digit\">" + minutes + "</span> (M) <span class=\"digit\">" + seconds + "</span> (S)</p>" ; 
 	$("#clock").html(result);
 }
