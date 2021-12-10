@@ -76,8 +76,8 @@
         this.tree = tree;
 
         var scale = scale || 1
-        //var color = color || '#FF0000';
-        var color =  '#06569c';
+        var color = color || '#FF0000';
+       // var color =  '#06569c';
         this.heart = {
             point  : point,
             scale  : scale,
@@ -169,12 +169,12 @@
             ctx.moveTo(0, 0);
             ctx.scale(0.75, 0.75);
             ctx.font = "12px 微软雅黑,Verdana"; // 字号肿么没有用? (ˉ(∞)ˉ)
-            ctx.fillText("click aqui!", 23, 16);
+            ctx.fillText("No estes triste 🥺", 23, 16);
             ctx.restore();
         },
         clear: function() {
             var ctx = this.tree.ctx, cirle = this.cirle;
-            var point = cirle.point, scale = cirle.scale, radius = 26;
+            var point = cirle.point, scale = cirle.scale, radius = 40;
             var w = h = (radius * scale);
             ctx.clearRect(point.x - w, point.y - h, 4 * w, 4 * h);
         },
@@ -471,8 +471,8 @@
     Bloom = function(tree, point, figure, color, alpha, angle, scale, place, speed) {
         this.tree = tree;
         this.point = point;
-       // this.color = color || 'rgb(255,' + random(0, 255) + ',' + random(0, 255) + ')';
-        this.color = color || 'rgb(27,' + random(0, 255) + ',' + random(0, 255) + ')';
+        this.color = color || 'rgb(255,' + random(0, 255) + ',' + random(0, 255) + ')';
+       // this.color = color || 'rgb(27,' + random(0, 255) + ',' + random(0, 255) + ')';
         //this.color = 'rgb(35, 31, 32)';
         this.alpha = alpha || random(0.3, 1);
         this.angle = angle || random(0, 360);
