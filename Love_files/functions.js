@@ -31,34 +31,38 @@ $(window).resize(function() {
 				if (progress >= str.length) {
 					clearInterval(timer);
 				}
-			}, 75);
+			}, 85);
 		});
 		return this;
 	};
 })(jQuery);
 
-function timeElapse(date){
-	
-	var current = Date();
-	var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
-	console.log(current);
-	console.log(date);
-	console.log(seconds);
-	var days = Math.floor(seconds / (3600 * 24));
-	seconds = seconds % (3600 * 24);
-	var hours = Math.floor(seconds / 3600);
-	if (hours < 10) {
-		hours = "0" + hours;
+function timeElapse(date,bool){
+	if(bool){
+		var current = Date();
+		var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
+		console.log(current);
+		console.log(date);
+		console.log(seconds);
+		var days = Math.floor(seconds / (3600 * 24));
+		seconds = seconds % (3600 * 24);
+		var hours = Math.floor(seconds / 3600);
+		if (hours < 10) {
+			hours = "0" + hours;
+		}
+		seconds = seconds % 3600;
+		var minutes = Math.floor(seconds / 60);
+		if (minutes < 10) {
+			minutes = "0" + minutes;
+		}
+		seconds = seconds % 60;
+		if (seconds < 10) {
+			seconds = "0" + seconds;
+		}
+		var result = "<p> <span class=\"digit\">" + days + "</span> (天) <span class=\"digit\">" + hours + "</span> (小时) <span class=\"digit\">" + minutes + "</span> (分钟 ) <span class=\"digit\">" + seconds + "</span> (秒)</p>" ; 
+		$("#clock").html(result);
+	}else{
+		var result = "<p> <span class=\"digit\">  --  </span> (天) <span class=\"digit\">  --  </span> (小时) <span class=\"digit\">  --  </span> (分钟 ) <span class=\"digit\">  --  </span> (秒)</p>" ; 
+		$("#clock").html(result);
 	}
-	seconds = seconds % 3600;
-	var minutes = Math.floor(seconds / 60);
-	if (minutes < 10) {
-		minutes = "0" + minutes;
-	}
-	seconds = seconds % 60;
-	if (seconds < 10) {
-		seconds = "0" + seconds;
-	}
-	var result = "<p> <span class=\"digit\">" + days + "</span> (天) <span class=\"digit\">" + hours + "</span> (小时) <span class=\"digit\">" + minutes + "</span> (分钟 ) <span class=\"digit\">" + seconds + "</span> (秒)</p>" ; 
-	$("#clock").html(result);
 }

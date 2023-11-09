@@ -76,8 +76,8 @@
         this.tree = tree;
 
         var scale = scale || 1
-        var color = color || '#FF0000';
-       // var color =  '#06569c';
+
+        var color =  '#00000';
         this.heart = {
             point  : point,
             scale  : scale,
@@ -162,14 +162,14 @@
             ctx.translate(point.x, point.y);
             ctx.scale(scale, scale);
             ctx.moveTo(0, 0);
-    	    ctx.lineTo(15, 15);
-    	    ctx.lineTo(60, 15);
+    	    // ctx.lineTo(15, 15);
+    	    // ctx.lineTo(60, 15);
             ctx.stroke();
 
             ctx.moveTo(0, 0);
-            ctx.scale(0.75, 0.75);
+            //ctx.scale(0.75, 0.75);
             ctx.font = "12px 微软雅黑,Verdana"; // 字号肿么没有用? (ˉ(∞)ˉ)
-            ctx.fillText("No estes triste 🥺", 23, 16);
+            //ctx.fillText("", 23, 16);
             ctx.restore();
         },
         clear: function() {
@@ -472,7 +472,7 @@
         this.tree = tree;
         this.point = point;
         this.color = color || 'rgb(255,' + random(0, 255) + ',' + random(0, 255) + ')';
-       // this.color = color || 'rgb(27,' + random(0, 255) + ',' + random(0, 255) + ')';
+        //this.color = color || 'rgb(000,' + random(0, 255) + ',' + random(0, 255) + ')';
         //this.color = 'rgb(35, 31, 32)';
         this.alpha = alpha || random(0.3, 1);
         this.angle = angle || random(0, 360);
